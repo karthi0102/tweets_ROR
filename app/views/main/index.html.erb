@@ -1,0 +1,9 @@
+<h1>Home Page</h1>
+
+<% if Current.user%>
+    Logged in as <%= Current.user.email%>
+    <div>
+        <%=link_to "Logout" ,logout_path,data:{turbo_method: :delete} , class:"btn btn-danger my-3 btm-sm" %>
+    </div>
+<%end %>
+

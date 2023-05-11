@@ -1,0 +1,30 @@
+<h1>Create a new user</h1>
+
+<%= form_with model:@user,url:register_path do |form| %>
+
+<div  class="from-group mb-3" >
+    <%=form.label :email,class:"form-label" %>
+    <%=form.text_field :email,class:"form-control" %>
+    <% @user.errors.full_messages_for(:email).each do |msg| %>
+        <div class="text-danger"><%=msg%></div>
+    <% end %>
+</div>
+
+<div class="from-group mb-3" >
+    <%=form.label :password,class:"form-label" %>
+    <%=form.password_field :password ,class:"form-control"%>
+      <% @user.errors.full_messages_for(:password).each do |msg| %>
+        <div class="text-danger"><%=msg%></div>
+    <% end %>
+</div>
+
+<div class="from-group mb-3" >
+    <%=form.label :password_confirmation,class:"form-label" %>
+    <%=form.password_field :password_confirmation ,class:"form-control"%>
+</div>
+
+<div class="mb-3">
+    <%= form.submit "Register", class:"btn btn-primary"%>
+</div>
+
+<% end %>
